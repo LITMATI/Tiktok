@@ -13,7 +13,7 @@
             box-sizing: border-box;
         }
 
-        /* базовые переменные для светлой темы (по умолчанию) */
+        /* светлая тема (по умолчанию) */
         :root {
             --bg-gradient-start: #f8fafd;
             --bg-gradient-end: #ecf3f9;
@@ -32,7 +32,7 @@
             --shadow-hover: 0 30px 42px -18px rgba(0, 0, 0, 0.18);
         }
 
-        /* тёмная тема — автоматически при включённой системной тёмной теме */
+        /* тёмная тема автоматически */
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-gradient-start: #0f1724;
@@ -51,7 +51,6 @@
                 --shadow: 0 20px 32px -14px rgba(0, 0, 0, 0.3);
                 --shadow-hover: 0 30px 42px -18px rgba(0, 0, 0, 0.5);
             }
-            /* небольшая корректировка иконок в тёмной теме для контраста */
             .card-tiktok:hover .icon {
                 color: #ffffff;
                 text-shadow: 0 1px 4px rgba(255,255,255,0.2);
@@ -72,7 +71,7 @@
             align-items: center;
             justify-content: center;
             padding: 2rem 1.5rem;
-            transition: background 0.3s ease, color 0.2s;
+            transition: background 0.3s ease;
         }
 
         .container {
@@ -94,10 +93,10 @@
             transition: color 0.2s;
         }
 
-        /* сетка карточек */
+        /* сетка карточек — адаптивная под 5 элементов */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
             justify-items: center;
             align-items: stretch;
@@ -185,17 +184,15 @@
             background: var(--line-hover);
         }
 
-        /* акценты цвета при наведении (базовые для светлой темы, в dark медиа уже переопределены) */
+        /* акценты цветов */
         .card-tiktok:hover .icon {
             color: #000000;
             text-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
         }
-
         .card-telegram:hover .icon {
             color: #27A6E5;
             filter: drop-shadow(0 2px 5px rgba(39, 166, 229, 0.2));
         }
-
         .card-site:hover .icon {
             color: #3b82f6;
         }
@@ -220,6 +217,7 @@
         .card:nth-child(2) { animation-delay: 0.1s; }
         .card:nth-child(3) { animation-delay: 0.15s; }
         .card:nth-child(4) { animation-delay: 0.2s; }
+        .card:nth-child(5) { animation-delay: 0.25s; }
 
         @media (max-width: 680px) {
             body {
@@ -267,7 +265,7 @@
             <span class="username">@tgk_prosto.chelik</span>
         </a>
 
-        <!-- 2. Первый Telegram (мой ТГК) -->
+        <!-- 2. Telegram (мой ТГК) -->
         <a href="https://t.me/prosto_chelim" 
            class="card card-telegram" 
            target="_blank" 
@@ -277,7 +275,7 @@
             <span class="username">@prosto_chelim</span>
         </a>
 
-        <!-- 3. Второй Telegram (всё о переводчике) -->
+        <!-- 3. Telegram (всё о переводчике) -->
         <a href="https://t.me/perevod_litmati" 
            class="card card-telegram" 
            target="_blank" 
@@ -288,13 +286,23 @@
         </a>
 
         <!-- 4. Сайт -->
-        <a href="https://litmati.github.io/mell/" 
+        <a href="https://litmati.github.io/perevod/" 
            class="card card-site" 
            target="_blank" 
            rel="noopener noreferrer">
             <i class="fas fa-globe icon"></i>
             <span class="label">мой сайт</span>
-            <span class="username">litmati.github.io/mell</span>
+            <span class="username">litmati.github.io/perevod</span>
+        </a>
+
+        <!-- 5. Дополнительный Telegram: litmati -->
+        <a href="https://t.me/litmati" 
+           class="card card-telegram" 
+           target="_blank" 
+           rel="noopener noreferrer">
+            <i class="fab fa-telegram icon"></i>
+            <span class="label">литмати</span>
+            <span class="username">@litmati</span>
         </a>
     </div>
 
